@@ -3,6 +3,9 @@ import numpy as np
 from matplotlib.animation import FuncAnimation
 
 fig, ax = plt.subplots()
+
+plt.plot(0,0,marker='o', color='y')
+
 def planet_track(r=1):
     x = np.arange(-2*r, 2*r, 0.1)
     y = np.arange(-2*r, 2*r, 0.1)
@@ -15,32 +18,6 @@ def planet_track(r=1):
     plt.axis('equal')
     plt.savefig('pic.png')
 planet_track()
-
-def sun(r=0.25):
-    x = np.arange(-2*r, 2*r, 0.1)
-    y = np.arange(-2*r, 2*r, 0.1)
-
-    X, Y = np.meshgrid(x,y)
-
-    fxy = X**2 + Y**2 -r**2
-
-    plt.contour(X, Y, fxy, levels=[r**2])
-    plt.axis('equal')
-    plt.savefig('pic.png')
-sun()
-
-def earth(r=0.25):
-    x = np.arange(-2*r, 2*r, 0.1)
-    y = np.arange(-2*r, 2*r, 0.1)
-
-    X, Y = np.meshgrid(x,y)
-
-    fxy = X**2 + Y**2 - r**2
-
-    plt.contour(X, Y+1.5, fxy, levels=[r**2])
-    plt.axis('equal')
-    plt.savefig('pic.png')
-earth()
 
 def earth_track(r=2):
     x = np.arange(-2*r, 2*r, 0.1)
@@ -101,3 +78,10 @@ def animate(i):
     racket.set_data(move_racket(r=2.1,angle_vel=1.9, time=i))
 ani = FuncAnimation(fig,animate,frames=90,interval=15)
 ani.save('project.gif')
+
+anim = []
+
+anim.append( matplotlib.animation.FuncAnimation(move_planet, updatePlots_A, frames=None, interval=100, repeat=True) )
+anim.append( matplotlib.animation.FuncAnimation(move_racket, updatePlots_B, frames=None, interval=100, repeat=True) )
+
+ani.
