@@ -2,7 +2,7 @@ import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 
-t=np.arange(-5,5,0.1)
+t=np.arange(-5,5,0.01)
 
 def func(w,t):
     y,z=w
