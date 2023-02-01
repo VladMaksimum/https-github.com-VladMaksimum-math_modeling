@@ -2,15 +2,15 @@ import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 
-x=np.arange(0,5,0.1)
+x=np.arange(0.1,5,0.01)
 
 def func(w,x):
     y,z = w
     dydx = z
-    dzdx = (z**2-((3*y**2)/x**(1/2)))/y
+    dzdx= (z**2-((3*y**2)/x**(1/2)))/y
     return dydx, dzdx
 
-y0 = 0
+y0 = 0.1
 z0 = 1
 w0 = y0, z0
 
