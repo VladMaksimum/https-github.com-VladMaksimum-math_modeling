@@ -7,10 +7,9 @@ m=0.5
 g=9.8
 f=0.1
 mu = 0.2
-v=20
 
 frames=200
-t=np.linspace(0,100,frames)
+t=np.linspace(0,5,frames)
 
 def diff(w, t):
     y, vy = w
@@ -29,7 +28,7 @@ def move(i):
     return  x, y
 
 fig, ax = plt.subplots()
-ball, = plt.plot([], [])
+ball, = plt.plot([], [], 'o')
 
 def animate(i):
     ball.set_data(move(i))
@@ -40,4 +39,4 @@ edge = 20
 ax.set_xlim(-edge, edge)
 ax.set_ylim(-edge, edge)
 
-plt.s('gif1.gif')
+ani.save('lec_11_1.gif')
