@@ -13,24 +13,20 @@ frames=200
 t=np.linspace(0,100,frames)
 
 def diff(w, t):
-    x, vx, y, vy = w
-    dxdt = vx
-    dvxdt = 0
+    y, vy = w
     dydt = vy
-    dvydt = mu*m*vy - m*g
-    return dxdt, dvxdt, dydt, dvydt
+    dvydt = -mu*m*vy - g
+    return dydt, dvydt
 
-x0 = 0
-v0x = v*np.cos(90)
 y0 = 0
-v0y = v*np.sin(90)
-w0 = x0, v0x, y0, v0y
+v0y = 20
+w0 = y0, v0y
 
 def move(i):
     risovalka = odeint(diff, w0, t)
-    x = risovalka[i, 0]
-    y = risovalka[i, 2]
-    return x, y
+    x = 0
+    y = risovalka[i, 0]
+    return  x, y
 
 fig, ax = plt.subplots()
 ball, = plt.plot([], [])
@@ -44,4 +40,4 @@ edge = 20
 ax.set_xlim(-edge, edge)
 ax.set_ylim(-edge, edge)
 
-plt.savefig('pic2.png')
+plt.s('gif1.gif')
