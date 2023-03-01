@@ -5,7 +5,7 @@ from matplotlib.animation import FuncAnimation
 
 frames=500
 t=np.linspace(0, 5, frames)
-k=12.5
+k=125
 m=0.5
 g=9.8
 
