@@ -3,13 +3,24 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-A=8000
-k1 = 5
-k2 =10
+k1 = 3
+k2 = 5
+A=100
 
-frames = 200
-t=np.linspace(0,5,frames)
+t=np.arange(0,5,0.1)
 
 def diff(w,t):
-    x, y = w
-    dxdt 
+    X, Y = w
+    dxdt = k1*(A-X-Y)
+    dydt = k2*(A-X-Y)
+    return dxdt, dydt
+
+X0=0
+Y0=0
+w0= X0, Y0
+
+risovalka = odeint(diff, w0, t)
+
+plt.plot(t, risovalka[:,0])
+plt.plot(t, risovalka[:,1])
+plt.savefig('pic1.png')
