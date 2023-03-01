@@ -5,14 +5,14 @@ from matplotlib.animation import FuncAnimation
 
 frames=500
 t=np.linspace(0, 5, frames)
-k=125
+k=12.5
 m=0.5
 g=9.8
 
 def diff(w, t):
     y, vy = w 
     dydt = vy
-    dvydt = (k/m)*y - g
+    dvydt = -(k/m)*y + g
     return dydt, dvydt
 
 y0 = -0.08
@@ -29,7 +29,7 @@ def animate(i):
 
 ani = FuncAnimation(fig, animate, frames=frames, interval=30)
 
-edge = 100
+edge = 1
 ax.set_xlim(-edge, edge)
 ax.set_ylim(-edge, edge)
 
