@@ -91,9 +91,21 @@ xc0, v_xc0, yc0, v_yc0)
 
 sol = odeint(move, w0, t)
 
+def a(i):
+    
+
 fig, ax = plt.subplots()
 
-a, = ()
+a_move, = plt.plot([], [], 'o', color='y')
+b_move, = plt.plot([], [], 'o', color='b')
+c_move, = plt.plot([], [], 'o', color='r')
+
+def animate(i):
+    a_move.set_data(a(i))
+    b_move.set_data(b(i))
+    c_move.set_data(c(i))
+
+
 ani = FuncAnimation(fig,
                     animate,
                     frames=frames,
