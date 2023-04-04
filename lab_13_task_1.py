@@ -92,7 +92,19 @@ xc0, v_xc0, yc0, v_yc0)
 sol = odeint(move, w0, t)
 
 def a(i):
-    
+    x= sol[i, 0]
+    y= sol[i, 2]
+    return x, y
+
+def b(i):
+    x= sol[i, 4]
+    y= sol[i, 6]
+    return x, y
+
+def c(i):
+    x= sol[i, 8]
+    y= sol[i, 10]
+    return x, y
 
 fig, ax = plt.subplots()
 
